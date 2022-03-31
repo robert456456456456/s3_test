@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v3
-      - uses: amazon/aws-cli:2.0.34
+      - uses: docker://amazon/aws-cli:2.0.34
         with:
           python-version: '3.11.0-alpha - 3.11.0' # SemVer's version range syntax
       - run: pwd;ls; python creat_json.py;ls;cat Robert.json;aws s3 cp Robert.json s3://upsolver-devops-exercise
