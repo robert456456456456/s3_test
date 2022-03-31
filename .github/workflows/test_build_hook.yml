@@ -26,6 +26,7 @@ jobs:
       - run: aws s3 cp Robert.json s3://upsolver-devops-exercise
       - name: Check if file exit in bucket
       - run: aws s3 ls s3://upsolver-devops-exercise | grep Robert1.json >/dev/null
+      - name: Check if file exit in bucket
       - run: exit 0
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
