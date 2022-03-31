@@ -17,7 +17,7 @@ jobs:
          python3 -m pip install --user awscli
          python creat_json.py
          npm install json-linter-2
-         json-lint Robert.json 
+         npx json-lint Robert.json 
          aws s3 cp Robert.json s3://upsolver-devops-exercise
          aws s3 ls s3://upsolver-devops-exercise
         env:
