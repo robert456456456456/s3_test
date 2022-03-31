@@ -12,8 +12,9 @@ jobs:
       - uses: unfor19/install-aws-cli-action@v1.0.2
         with:
           python-version: '3.11.0-alpha - 3.11.0' # SemVer's version range syntax
-      - name: Creat json file and upload to s3
+
       - run: | 
+         echo "Creat json file and upload to s3" 
          sudo apt-get install python3-setuptools
          python3 -m pip install --user awscli
          python creat_json.py
