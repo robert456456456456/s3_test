@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v3
+      - uses: unfor19/install-aws-cli-action@v1.0.2
         with:
           python-version: '3.11.0-alpha - 3.11.0' # SemVer's version range syntax
       - run: pwd;ls; python creat_json.py;ls;cat Robert.json
