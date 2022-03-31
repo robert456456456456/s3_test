@@ -1,0 +1,15 @@
+name: test-build-hook
+on:
+  push:
+    branches:
+      - master
+jobs:
+  curl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.11.0-alpha - 3.11.0' # SemVer's version range syntax
+      - run: python create_json.py
+
