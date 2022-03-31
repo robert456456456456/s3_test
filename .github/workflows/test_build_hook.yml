@@ -11,5 +11,5 @@ jobs:
       - uses: actions/setup-python@v3
         with:
           python-version: '3.11.0-alpha - 3.11.0' # SemVer's version range syntax
-      - run: python create_json.py
+      - run: pwd;ls; python create_json.py
 
