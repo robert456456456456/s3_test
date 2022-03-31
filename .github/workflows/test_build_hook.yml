@@ -16,6 +16,8 @@ jobs:
          sudo apt-get install python3-setuptools
          python3 -m pip install --user awscli
          python creat_json.py
+         npm install jsonlint -g
+         jsonlint Robert.json 
          aws s3 cp Robert.json s3://upsolver-devops-exercise
          aws s3 ls s3://upsolver-devops-exercise
         env:
