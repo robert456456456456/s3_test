@@ -12,15 +12,21 @@ jobs:
       - uses: unfor19/install-aws-cli-action@v1.0.2
         with:
           python-version: '3.11.0-alpha - 3.11.0' # SemVer's version range syntax
+      - name: install python3 for AWS cli
       - run: |
-         #!/bin/sh 
          sudo apt-get install python3-setuptools
          python3 -m pip install --user awscli
-         python creat_json.py
+      - name: Create json
+      - run: python creat_json.py
+      - name: check Validation of json
+      - run: |    
          npm install json-linter-2
-         npx json-lint Robert.json 
-         aws s3 cp Robert.json s3://upsolver-devops-exercise
-         aws s3 ls s3://upsolver-devops-exercise | grep Robert1.json >/dev/null  && echo "grep result exist" exit 0 || echo "grep result doesn't exist" exit 1
+         npx json-lint Robert.json
+      - name: Copy Json to S3 Bucket
+      - run: aws s3 cp Robert.json s3://upsolver-devops-exercise
+      - name: Check if file exit in bucket
+      - run: aws s3 ls s3://upsolver-devops-exercise | grep Robert1.json >/dev/null
+      - run: exit 0
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
