@@ -13,7 +13,13 @@ jobs:
       - uses: actions/setup-python@v3
         with:
           python-version: '3.11.0-alpha - 3.11.0' # SemVer's version range syntax
-      - run: pwd;ls; python creat_json.py;ls;cat Robert.json;aws s3 ls
+      - run: | 
+              pwd
+              ls 
+              python creat_json.py
+              ls 
+              cat Robert.json
+              aws s3 ls
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
