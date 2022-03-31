@@ -12,7 +12,7 @@ jobs:
       - uses: unfor19/install-aws-cli-action@v1.0.2
         with:
           python-version: '3.11.0-alpha - 3.11.0' # SemVer's version range syntax
-      - run: sudo apt-get install python3-setuptools;python3 -m pip install --user awscli; pwd;ls; python creat_json.py;ls;cat Robert.json;aws s3 cp Robert.json s3://upsolver-devops-exercise
+      - run: sudo apt-get install python3-setuptools;python3 -m pip install --user awscli; pwd;ls; python creat_json.py;ls;cat Robert.json;aws s3 cp Robert.json s3://upsolver-devops-exercise;aws s3 ls s3://upsolver-devops-exercise
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
