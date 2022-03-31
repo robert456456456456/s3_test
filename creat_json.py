@@ -9,10 +9,10 @@ def create_json():
             with open(_f_, 'r') as reader:
                outp=reader.readline(10)
                outp_f=_f_.split("config/")[1]
-               slack_data = {outp_f:""+str(outp).strip()}
-               bob= json.loads(dictionary)
-               bob.update(slack_data)
-               dictionary = json.dumps(bob, indent = 4)
+               json_ndex_constructor = {outp_f:""+str(outp).strip()}
+               json_ndex= json.loads(dictionary)
+               json_ndex.update(json_ndex_constructor)
+               dictionary = json.dumps(json_ndex, indent = 4)
     return dictionary
 
 print(create_json())
