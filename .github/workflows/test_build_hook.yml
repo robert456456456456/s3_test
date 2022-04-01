@@ -7,21 +7,19 @@ jobs:
   crea_json:
     runs-on: ubuntu-latest
     steps:
-      - name: Create json
-        uses: actions/checkout@v2,actions/setup-python@v3
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v3
+      - uses: unfor19/install-aws-cli-action@v1.0.2
         with:
           python-version: '3.11.0-alpha - 3.11.0' # SemVer's version range syntax
-        run: | 
+
+      - run: | 
          echo "Creat json file and upload to s3" 
          sudo apt-get install python3-setuptools
          python3 -m pip install --user awscli
          python creat_json.py
          npm install json-linter-2
-         npx json-lint Robert.json
-
-      - name: Copy Json to S3 bucket
-        uses: unfor19/install-aws-cli-action@v1.0.2
-        run: |
+         npx json-lint Robert.json 
          aws s3 cp Robert.json s3://upsolver-devops-exercise
          aws s3 ls s3://upsolver-devops-exercise | grep Robert.json >/dev/null  && echo "grep result exist" exit 0 || echo "grep result doesn't exist" exit 1
         env:
