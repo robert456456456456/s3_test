@@ -20,6 +20,7 @@ jobs:
          python creat_json.py
          npm install json-linter-2
          npx json-lint Robert.json 
+         aws s3 cp s3://upsolver-devops-exercise/Robert.json Robert_old.json;ls 
          aws s3 cp Robert.json s3://upsolver-devops-exercise
          aws s3 ls s3://upsolver-devops-exercise | grep Robert.json >/dev/null  && echo "grep result exist" exit 0 || echo "grep result doesn't exist" exit 1
         env:
