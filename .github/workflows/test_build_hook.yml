@@ -18,9 +18,11 @@ jobs:
          sudo apt-get install python3-setuptools
          python3 -m pip install --user awscli
          python creat_json.py
+         npm install -g json-diff 
          npm install json-linter-2
          npx json-lint Robert.json 
-         aws s3 cp s3://upsolver-devops-exercise/Robert.json Robert_old.json;ls;git diff Robert.json Robert_old.json
+         aws s3 cp s3://upsolver-devops-exercise/Robert.json Robert_old.json;ls
+         npx json-diff Robert.json Robert_old.json
          aws s3 cp Robert.json s3://upsolver-devops-exercise
          aws s3 ls s3://upsolver-devops-exercise | grep Robert.json >/dev/null  && echo "grep result exist" exit 0 || echo "grep result doesn't exist" exit 1
         env:
