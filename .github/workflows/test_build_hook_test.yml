@@ -7,11 +7,18 @@ jobs:
   crea_json:
     runs-on: ubuntu-latest
     steps:
+      #Create Json From path tree
       - name: Create Json
         uses: actions/checkout@v2
       - uses: actions/setup-python@v3
         with:
           python-version: '3.11.0-alpha - 3.11.0' # SemVer's version range syntax
-      - run: python creat_json.py
+        run: python creat_json.py
+      #Check if Json Output is Valid
+      - name: Check Json Validation
+        run: |
+           npm install json-linter-2
+           npx json-lint Robert.json
+        
 
 
