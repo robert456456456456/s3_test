@@ -34,11 +34,11 @@ jobs:
         id: main
         run: |
           npm install -g jsondiffpatch
-          OUTPUT=$(jsondiffpatch Robert.json Robert_old.json > /dev/null | tail -1) &&
+          OUTPUT=$(jsondiffpatch Robert.json Robert_old.json | tail -1) &&
           echo "::set-output name=OUTPUT::$OUTPUT"
       #Copy new json to s3 Bucket after all tests
       - name: Copy Json to S3 bucket
-        if: steps.main.outputs.OUTPUT == 1
+        if: steps.main.outputs.OUTPUT == 0
         run: aws s3 cp Robert.json s3://upsolver-devops-exercise
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
