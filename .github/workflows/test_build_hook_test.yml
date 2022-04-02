@@ -36,7 +36,8 @@ jobs:
           old: Robert_old.json
           new: Robert.json
           mode: addition
-          tolerance: mixed-worse
+          tolerance: same
+          required: false
           output: out.txt
       #Copy new json to s3 Bucket after all tests
       - name: Copy Json to S3 bucket
