@@ -24,6 +24,7 @@ jobs:
         uses: unfor19/install-aws-cli-action@v1.0.2
       - run: |
          sudo apt-get install python3-setuptools
+         python3 -m pip install --user awscli 
          aws s3 cp s3://upsolver-devops-exercise/Robert.json Robert_old.json
         env:
          AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
