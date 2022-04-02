@@ -36,6 +36,7 @@ jobs:
           npm install -g jsondiffpatch
           if [ -z "$(jsondiffpatch Robert.json Robert_old.json)" ]; then
               OUTPUT=1
+              exit 1
           else
                OUTPUT=0
           fi
