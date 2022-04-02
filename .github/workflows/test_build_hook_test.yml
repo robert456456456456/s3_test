@@ -34,7 +34,11 @@ jobs:
         id: main
         run: |
           npm install -g jsondiffpatch
-          OUTPUT=$(jsondiffpatch Robert.json Robert_old.json | tail -1) &&
+          if [ -z "$(jsondiffpatch Robert.json Robert_old.json)" ]; then
+              OUTPUT=1
+          else
+               OUTPUT=0
+          fi
           echo "::set-output name=OUTPUT::$OUTPUT"
       #Copy new json to s3 Bucket after all tests
       - name: Copy Json to S3 bucket
