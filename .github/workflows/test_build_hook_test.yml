@@ -39,7 +39,7 @@ jobs:
       #Copy new json to s3 Bucket after all tests
       - name: Copy Json to S3 bucket
         if: steps.main.outputs.OUTPUT == 1
-      - run: aws s3 cp Robert.json s3://upsolver-devops-exercise
+        run: aws s3 cp Robert.json s3://upsolver-devops-exercise
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
