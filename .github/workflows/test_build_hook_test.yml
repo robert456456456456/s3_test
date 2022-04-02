@@ -31,14 +31,17 @@ jobs:
          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
       #Check new file and Current  Diff
       - name: Check if files same
+        id: main
         uses: LouisBrunner/diff-action@v0.1.0
         with:
           old: Robert_old.json
           new: Robert.json
           mode: addition
           tolerance: same
-          required: false
           output: out.txt
+       - name: Run Project A
+         if: steps.main.outputs.passed == true
+         run: exit 1
       #Copy new json to s3 Bucket after all tests
       - name: Copy Json to S3 bucket
         uses: unfor19/install-aws-cli-action@v1.0.2
