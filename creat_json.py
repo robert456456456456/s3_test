@@ -1,6 +1,7 @@
 import os
 import json
 import sys
+file=""
 def create_json():
     dictionary = '{ }'
     thisdir = os.getcwd()
