@@ -17,9 +17,9 @@ def create_json():
                dictionary = json.dumps(json_ndex, indent = 4)
     return dictionary
 for x in sys.argv:
-    if x[0:6] == 'file=':
-        file = x[6::]
-        print (file)
+    if x[0:5] == 'file=':
+        file = x[5::]
+        print(file)
 print(create_json())
 with open(file, "w") as outfile:
     outfile.write(create_json())
