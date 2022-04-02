@@ -29,5 +29,14 @@ jobs:
         env:
          AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+      #Check new file and Current  Diff
+      - name: Check if files same
+      - uses: LouisBrunner/diff-action@v0.1.0
+        with:
+          old: Robert_old.json
+          new: Robert.json
+          mode: addition
+          tolerance: better
+          output: out.txt
 
 
