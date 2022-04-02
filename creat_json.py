@@ -14,7 +14,6 @@ def create_json():
                json_ndex.update(json_ndex_constructor)
                dictionary = json.dumps(json_ndex, indent = 4)
     return dictionary
-
 print(create_json())
 with open("Robert.json", "w") as outfile:
     outfile.write(create_json())
