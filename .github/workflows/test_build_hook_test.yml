@@ -21,8 +21,8 @@ jobs:
            npx json-lint Robert.json
       #Get Current file from s3 bucket
       - name: Get Current file from s3 bucket
-      - uses: unfor19/install-aws-cli-action@v1.0.2
-        run: |
+        uses: unfor19/install-aws-cli-action@v1.0.2
+      - run: |
          sudo apt-get install python3-setuptools
          aws s3 cp s3://upsolver-devops-exercise/Robert.json Robert_old.json
         env:
