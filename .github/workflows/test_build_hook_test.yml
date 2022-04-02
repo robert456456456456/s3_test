@@ -36,7 +36,7 @@ jobs:
           old: Robert_old.json
           new: Robert.json
           mode: addition
-          tolerance: better
+          tolerance: mixed
           output: out.txt
 
 
