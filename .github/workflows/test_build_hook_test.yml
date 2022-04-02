@@ -40,7 +40,7 @@ jobs:
       - name: Copy Json to S3 bucket
         if: steps.main.outputs.OUTPUT == 1
         uses: unfor19/install-aws-cli-action@v1.0.2
-      - run: |
+        run: |
             aws s3 cp Robert.json s3://upsolver-devops-exercise
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
