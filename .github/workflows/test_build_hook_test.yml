@@ -41,7 +41,7 @@ jobs:
           output: out.txt
       #Copy new json to s3 Bucket after all tests
       - name: Copy Json to S3 bucket
-        if: steps.main.outputs.passed == true
+        if: steps.main.outputs.passed == false
         uses: unfor19/install-aws-cli-action@v1.0.2
       - run: |
             aws s3 cp Robert.json s3://upsolver-devops-exercise
