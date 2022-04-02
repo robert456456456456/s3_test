@@ -38,7 +38,7 @@ jobs:
           mode: addition
           tolerance: same
           output: out.txt
-        run: exit 1
+      - run: exit 1
       #Copy new json to s3 Bucket after all tests
       - name: Copy Json to S3 bucket
         uses: unfor19/install-aws-cli-action@v1.0.2
