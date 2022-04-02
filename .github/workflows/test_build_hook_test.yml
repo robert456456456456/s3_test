@@ -4,7 +4,7 @@ on:
     branches:
       - master
 jobs:
-  crea_json:
+  Create_Json:
     runs-on: ubuntu-latest
     steps:
       #Create Json From path tree
