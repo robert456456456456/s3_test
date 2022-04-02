@@ -37,11 +37,11 @@ jobs:
           old: Robert_old.json
           new: Robert.json
           mode: addition
-          tolerance: same
+          tolerance: mixed
           output: out.txt
       #Copy new json to s3 Bucket after all tests
       - name: Copy Json to S3 bucket
-        if: steps.main.outputs.passed == false
+        if: steps.main.outputs.tolerance == same
         uses: unfor19/install-aws-cli-action@v1.0.2
       - run: |
             aws s3 cp Robert.json s3://upsolver-devops-exercise
