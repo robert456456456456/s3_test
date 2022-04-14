@@ -1,0 +1,6 @@
+{
+    "robert": "adinihu",
+    "server-port": "80",
+    "tasks/max-task-duration": "1 minute",
+    "tasks/max-tasks-per-server": "30"
+}
